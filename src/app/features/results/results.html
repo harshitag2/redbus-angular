@@ -1,0 +1,38 @@
+<!-- src/app/features/results/results.html -->
+<div class="results-page">
+  <h2>Search Results</h2>
+
+  <!-- meta (showing search terms) -->
+  @if (lastQuery.from || lastQuery.to) {
+    <div class="meta">
+      Showing results for:
+      <strong *ngIf="lastQuery.from">{{ lastQuery.from }}</strong>
+      <span *ngIf="lastQuery.to"> → <strong>{{ lastQuery.to }}</strong></span>
+      <span *ngIf="lastQuery.date"> on {{ lastQuery.date }}</span>
+    </div>
+  }
+
+  <!-- loading -->
+  @if (loading) {
+    <div class="loading">Loading buses…</div>
+  } @else {
+    <!-- error -->
+    @if (error) {
+      <div class="error">{{ error }}</div>
+    } @else {
+      <!-- no results -->
+      @if (buses.length === 0) {
+        <div>No buses found for these search criteria.</div>
+      } @else {
+        <!-- results list -->
+        <div class="items">
+          <app-bus-card
+            *ngFor="let bus of buses"
+            [bus]="bus"
+            (view)="viewBus($event)">
+          </app-bus-card>
+        </div>
+      }
+    }
+  }
+</div>

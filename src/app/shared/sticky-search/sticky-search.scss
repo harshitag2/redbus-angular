@@ -1,0 +1,48 @@
+/* src/app/shared/sticky-search.scss (replace) */
+.sticky-search {
+  position: sticky;
+  top: 64px; /* sits under the compact header */
+  z-index: 1100;
+  background: #fff;
+  padding: 12px 0;
+  border-bottom: 1px solid rgba(0,0,0,0.03);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.03);
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+
+  .search-row {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    justify-content: flex-start;
+  }
+
+  input[type="text"], input[type="date"], input[type="number"] {
+    padding: 10px 12px;
+    border: 1px solid #e6e6e6;
+    border-radius: 8px;
+    min-width: 180px;
+    font-size: 14px;
+  }
+
+  input[type="date"] { min-width: 180px; }
+
+  .btn-primary {
+    background: #e53935;
+    color: #fff;
+    border: none;
+    padding: 10px 16px;
+    border-radius: 8px;
+    cursor: pointer;
+  }
+
+  @media (max-width: 900px) {
+    .search-row { flex-wrap: wrap; }
+    input { min-width: 140px; }
+    .btn-primary { width: 100%; }
+  }
+}

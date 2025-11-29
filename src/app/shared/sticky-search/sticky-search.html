@@ -1,0 +1,12 @@
+<!-- src/app/shared/sticky-search.html -->
+<div class="sticky-search">
+  <div class="container">
+    <form [formGroup]="form" (ngSubmit)="onSearch()" class="search-row">
+      <input formControlName="from" placeholder="From" />
+      <input formControlName="to" placeholder="To" />
+      <input type="date" formControlName="date" />
+      <input type="number" formControlName="passengers" min="1" />
+      <button class="btn-primary" type="submit">Search</button>
+    </form>
+  </div>
+</div>

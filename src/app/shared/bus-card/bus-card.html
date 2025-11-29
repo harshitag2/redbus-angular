@@ -1,0 +1,15 @@
+<!-- src/app/shared/bus-card/bus-card.html -->
+<div class="bus-card">
+  <div class="left">
+    <div class="operator">{{ bus.operator }}</div>
+    <div class="route">{{ bus.from }} → {{ bus.to }}</div>
+    <div class="time">
+      {{ bus.departure | date:'shortTime' }} - {{ bus.arrival | date:'shortTime' }}
+    </div>
+  </div>
+
+  <div class="right">
+    <div class="price">₹ {{ bus.price }}</div>
+    <button (click)="onView()">View Seats</button>
+  </div>
+</div>

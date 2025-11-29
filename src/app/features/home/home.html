@@ -1,0 +1,70 @@
+<!-- src/app/features/home/home.html -->
+<section class="home-hero">
+  <div class="container">
+    <div class="hero-left">
+      <h1>Fast bus booking across India</h1>
+      <p>Live seat availability, secure booking and great offers — all in one place.</p>
+
+      <div class="cta-row">
+        <button class="btn-primary" (click)="goToResults()">Search Buses</button>
+        <button class="btn-ghost" (click)="goToResults(popularRoutes[0])">Popular: {{popularRoutes[0].from}} → {{popularRoutes[0].to}}</button>
+      </div>
+    </div>
+
+    <div class="hero-right">
+      <div class="search-card">
+        <h3>Quick Search</h3>
+        <div class="search-rows">
+          <input placeholder="From (e.g. Delhi)" />
+          <input placeholder="To (e.g. Jaipur)" />
+          <input type="date" />
+          <button class="btn-primary" (click)="goToResults()">Search</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="offers container">
+  <h2>Top Offers</h2>
+  <div class="offers-grid">
+    <div class="offer" *ngFor="let p of promoCards.slice(0, 6)">
+      <h4>{{ p.title }}</h4>
+      <p>{{ p.subtitle }}</p>
+    </div>
+  </div>
+</section>
+
+<section class="popular container">
+  <h2>Popular Routes</h2>
+  <div class="routes">
+    <button class="route-pill" *ngFor="let r of popularRoutes" (click)="goToResults(r)">
+      {{ r.from }} → {{ r.to }}
+    </button>
+  </div>
+</section>
+
+<section class="promo-list container">
+  <h2>Trending promos & recommended</h2>
+  <div class="promo-cards">
+    <article class="promo-card" *ngFor="let p of promoCards">
+      <div class="promo-left">
+        <div class="promo-badge">Offer</div>
+        <h3>{{ p.title }}</h3>
+        <p>{{ p.subtitle }}</p>
+      </div>
+      <div class="promo-right">
+        <div class="price">Flat {{ 50 + (p.id % 40) }}% Off</div>
+        <button class="btn-primary" (click)="goToResults()">Book</button>
+      </div>
+    </article>
+  </div>
+</section>
+
+<section class="faq container">
+  <h2>Frequently asked</h2>
+  <details *ngFor="let f of ['How do I cancel a ticket?', 'How does refund work?', 'How to choose seats?']">
+    <summary>{{ f }}</summary>
+    <p>Answer for: {{ f }} — demo content to make the page longer so you can scroll and test features.</p>
+  </details>
+</section>

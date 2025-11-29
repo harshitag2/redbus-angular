@@ -1,0 +1,11 @@
+/* results.scss */
+.results-page {
+  max-width: 1000px;
+  margin: 24px auto;
+  padding: 12px;
+}
+.meta { margin-bottom: 10px; color:#444; }
+.loading { color:#666; padding:20px 0; }
+.error { color:#c62828; padding:12px 0; }
+
+.items { display: grid; gap: 12px; }

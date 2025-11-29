@@ -1,0 +1,17 @@
+<div class="details" *ngIf="!loading && bus">
+  <h2>{{ bus.operator }}</h2>
+
+  <p>{{ bus.from }} → {{ bus.to }}</p>
+
+  <p>
+    {{ bus.departure | date:'shortTime' }}
+    -
+    {{ bus.arrival | date:'shortTime' }}
+  </p>
+
+  <p>Price: ₹{{ bus.price }}</p>
+
+  <h3>Seatmap will appear here</h3>
+</div>
+
+<div *ngIf="loading">Loading bus details...</div>

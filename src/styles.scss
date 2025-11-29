@@ -1,1 +1,26 @@
-/* You can add global styles to this file, and also import other style files */
+/* src/styles.scss (append or replace relevant parts) */
+
+/* Ensure root allows normal doc scroll */
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow-y: auto; /* ensure vertical scrolling available */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  scroll-behavior: smooth; /* smooth anchor scrolling */
+}
+
+/* App container should not pin to viewport height */
+app-root, app-root > * {
+  min-height: 100%;
+}
+
+/* make main content scroll naturally under sticky header */
+.page-body { padding-top: 16px; }
+
+/* small helper for a nice page background */
+body { background: #f6f7f8; color: #222; }
+
+/* smooth scroll for anchors in browsers that support it */
+:root { scroll-behavior: smooth; }
